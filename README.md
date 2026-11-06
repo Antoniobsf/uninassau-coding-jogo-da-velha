@@ -1,6 +1,6 @@
 # Jogo da Velha no Terminal - Coding UNINASSAU
 
-Trabalho de 2ª Avaliação da disciplina de Coding do curso de Análise e Desenvolvimento de Sistemas (UNINASSAU).
+Trabalho de 2ª Avaliação da disciplina de Coding do curso de Análise e Desenvolvimento de Sistemas (UNINASSAU) do Professor Thiago Martins.
 
 ## Como executar o programa
 Para rodar o jogo, certifique-se de ter o Python instalado. Abra o terminal na pasta do projeto e execute o comando:
