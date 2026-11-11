@@ -35,7 +35,39 @@ while opcao_menu != "4":
             if i < 2:
                 print("  ---------")
         
-        # O Integrante 2 vai adicionar o ciclo de leitura e validação aqui no próximo commit
+        # 3. Validação de entrada sem quebrar o programa (Integrante 2)
+        jogada_valida = False
+        while jogada_valida == False:
+            print("\nVez do jogador " + jogador_atual)
+            linha_str = input("Escolha a linha (0, 1 ou 2): ")
+            col_str = input("Escolha a coluna (0, 1 ou 2): ")
+
+            linha_ok = False
+            col_ok = False
+
+            # Compara o texto com as strings válidas usando for para evitar ValueError
+            for n in range(3):
+                if linha_str == str(n):
+                    linha_ok = True
+                    linha_escolhida = n
+                if col_str == str(n):
+                    col_ok = True
+                    col_escolhida = n
+
+            if linha_ok == True and col_ok == True:
+                if tabuleiro[linha_escolhida][col_escolhida] == " ":
+                    jogada_valida = True
+                    tabuleiro[linha_escolhida][col_escolhida] = jogador_atual
+                else:
+                    print("Erro: Casa já ocupada! Escolha outra.")
+            else:
+                print("Erro: Entrada inválida! Digite apenas 0, 1 ou 2.")
+
+        # Troca temporária de jogador (o Integrante 3 vai mover isto para depois da verificação de vitória)
+        if jogador_atual == "X":
+            jogador_atual = "O"
+        else:
+            jogador_atual = "X"
         print("\n[O tabuleiro foi gerado! A leitura de jogadas será inserida na próxima etapa.]")
 
     elif opcao_menu == "4":
