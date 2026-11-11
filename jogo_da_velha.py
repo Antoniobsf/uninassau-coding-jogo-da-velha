@@ -63,6 +63,7 @@ while opcao_menu != "4":
             else:
                 print("Erro: Entrada inválida! Digite apenas 0, 1 ou 2.")
 
+        #adicionar informaçoes do intedrante 3 o mais breve
         # Troca temporária de jogador (o Integrante 3 vai mover isto para depois da verificação de vitória)
         if jogador_atual == "X":
             jogador_atual = "O"
