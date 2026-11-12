@@ -23,7 +23,9 @@ while opcao_menu != "4":
         deu_empate = False
         jogador_atual = "X"
 
-        print("\n  0   1   2")
+        # LOOP DA PARTIDA: Mantém o jogo rodando até ter um vencedor ou empate
+        while venceu == False and deu_empate == False:
+            print("\n  0   1   2")
         # 2. Exibição da matriz com for aninhado
         for i in range(3):
             linha_str = str(i) + " "
