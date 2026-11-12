@@ -63,14 +63,48 @@ while opcao_menu != "4":
             else:
                 print("Erro: Entrada inválida! Digite apenas 0, 1 ou 2.")
 
-        #adicionar informaçoes do intedrante 3 o mais breve
-        # Troca temporária de jogador (o Integrante 3 vai mover isto para depois da verificação de vitória)
-        if jogador_atual == "X":
-            jogador_atual = "O"
-        else:
-            jogador_atual = "X"
-        print("\n[O tabuleiro foi gerado! A leitura de jogadas será inserida na próxima etapa.]")
+       # 4. Verificação de vitória automática com laço for
+            for i in range(3):
+                # Testa as 3 linhas
+                if tabuleiro[i][0] == jogador_atual and tabuleiro[i][1] == jogador_atual and tabuleiro[i][2] == jogador_atual:
+                    venceu = True
+                # Testa as 3 colunas
+                if tabuleiro[0][i] == jogador_atual and tabuleiro[1][i] == jogador_atual and tabuleiro[2][i] == jogador_atual:
+                    venceu = True
 
+            # Testa as diagonais
+            if tabuleiro[0][0] == jogador_atual and tabuleiro[1][1] == jogador_atual and tabuleiro[2][2] == jogador_atual:
+                venceu = True
+            if tabuleiro[0][2] == jogador_atual and tabuleiro[1][1] == jogador_atual and tabuleiro[2][0] == jogador_atual:
+                venceu = True
+
+            # 5. Verificação de empate com for aninhado
+            vazias = 0
+            for i in range(3):
+                for j in range(3):
+                    if tabuleiro[i][j] == " ":
+                        vazias = vazias + 1
+            
+            if vazias == 0 and venceu == False:
+                deu_empate = True
+
+            # Fim de turno: Computa resultados ou troca o jogador
+            if venceu == True:
+                print("\n>>> O jogador " + jogador_atual + " VENCEU a partida! <<<")
+                total_partidas = total_partidas + 1
+                if jogador_atual == "X":
+                    vitorias_x = vitorias_x + 1
+                else:
+                    vitorias_o = vitorias_o + 1
+            elif deu_empate == True:
+                print("\n>>> Deu EMPATE! <<<")
+                total_partidas = total_partidas + 1
+                empates = empates + 1
+            else:
+                if jogador_atual == "X":
+                    jogador_atual = "O"
+                else:
+                    jogador_atual = "X"
     elif opcao_menu == "4":
         print("A encerrar o programa...")
     elif opcao_menu == "2" or opcao_menu == "3":
