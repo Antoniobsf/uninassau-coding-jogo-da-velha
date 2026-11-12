@@ -107,9 +107,23 @@ while opcao_menu != "4":
                     jogador_atual = "O"
                 else:
                     jogador_atual = "X"
+    elif opcao_menu == "2":
+        print("\nREGRAS: Os dois jogadores alternam turnos marcando X ou O. Vence quem alinhar 3 símbolos na horizontal, vertical ou diagonal.")
+
+    elif opcao_menu == "3":
+        # 6. Desafio: Estatísticas da sessão
+        print("\n=== ESTATÍSTICAS DA SESSÃO ===")
+        print("Partidas finalizadas: " + str(total_partidas))
+        print("Vitórias do X: " + str(vitorias_x))
+        print("Vitórias do O: " + str(vitorias_o))
+        print("Empates: " + str(empates))
+        if total_partidas > 0:
+            print("Taxa de vitória (X): " + str((vitorias_x / total_partidas) * 100) + "%")
+            print("Taxa de vitória (O): " + str((vitorias_o / total_partidas) * 100) + "%")
+        else:
+            print("Nenhuma partida registrada ainda.")
+
     elif opcao_menu == "4":
-        print("A encerrar o programa...")
-    elif opcao_menu == "2" or opcao_menu == "3":
-        print("Funcionalidade em desenvolvimento para os próximos commits...")
+        print("Encerrando o programa...")
     else:
         print("Opção inválida! Escolha um número de 1 a 4.")
