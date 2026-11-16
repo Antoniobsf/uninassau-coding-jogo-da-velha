@@ -26,46 +26,46 @@ while opcao_menu != "4":
         # LOOP DA PARTIDA: Mantém o jogo rodando até ter um vencedor ou empate
         while venceu == False and deu_empate == False:
             print("\n  0   1   2")
-        # 2. Exibição da matriz com for aninhado
-        for i in range(3):
-            linha_str = str(i) + " "
-            for j in range(3):
-                linha_str = linha_str + tabuleiro[i][j]
-                if j < 2:
-                    linha_str = linha_str + " | "
-            print(linha_str)
-            if i < 2:
-                print("  ---------")
-        
-        # 3. Validação de entrada sem quebrar o programa (Integrante 2)
-        jogada_valida = False
-        while jogada_valida == False:
-            print("\nVez do jogador " + jogador_atual)
-            linha_str = input("Escolha a linha (0, 1 ou 2): ")
-            col_str = input("Escolha a coluna (0, 1 ou 2): ")
+            # 2. Exibição da matriz com for aninhado
+            for i in range(3):
+                linha_str = str(i) + " "
+                for j in range(3):
+                    linha_str = linha_str + tabuleiro[i][j]
+                    if j < 2:
+                        linha_str = linha_str + " | "
+                print(linha_str)
+                if i < 2:
+                    print("  ---------")
 
-            linha_ok = False
-            col_ok = False
+            # 3. Validação de entrada sem quebrar o programa (Integrante 2)
+            jogada_valida = False
+            while jogada_valida == False:
+                print("\nVez do jogador " + jogador_atual)
+                linha_str = input("Escolha a linha (0, 1 ou 2): ")
+                col_str = input("Escolha a coluna (0, 1 ou 2): ")
 
-            # Compara o texto com as strings válidas usando for para evitar ValueError
-            for n in range(3):
-                if linha_str == str(n):
-                    linha_ok = True
-                    linha_escolhida = n
-                if col_str == str(n):
-                    col_ok = True
-                    col_escolhida = n
+                linha_ok = False
+                col_ok = False
 
-            if linha_ok == True and col_ok == True:
-                if tabuleiro[linha_escolhida][col_escolhida] == " ":
-                    jogada_valida = True
-                    tabuleiro[linha_escolhida][col_escolhida] = jogador_atual
+                # Compara o texto com as strings válidas usando for para evitar ValueError
+                for n in range(3):
+                    if linha_str == str(n):
+                        linha_ok = True
+                        linha_escolhida = n
+                    if col_str == str(n):
+                        col_ok = True
+                        col_escolhida = n
+
+                if linha_ok == True and col_ok == True:
+                    if tabuleiro[linha_escolhida][col_escolhida] == " ":
+                        jogada_valida = True
+                        tabuleiro[linha_escolhida][col_escolhida] = jogador_atual
+                    else:
+                        print("Erro: Casa já ocupada! Escolha outra.")
                 else:
-                    print("Erro: Casa já ocupada! Escolha outra.")
-            else:
-                print("Erro: Entrada inválida! Digite apenas 0, 1 ou 2.")
+                    print("Erro: Entrada inválida! Digite apenas 0, 1 ou 2.")
 
-       # 4. Verificação de vitória automática com laço for
+            # 4. Verificação de vitória automática com laço for
             for i in range(3):
                 # Testa as 3 linhas
                 if tabuleiro[i][0] == jogador_atual and tabuleiro[i][1] == jogador_atual and tabuleiro[i][2] == jogador_atual:
@@ -86,7 +86,7 @@ while opcao_menu != "4":
                 for j in range(3):
                     if tabuleiro[i][j] == " ":
                         vazias = vazias + 1
-            
+
             if vazias == 0 and venceu == False:
                 deu_empate = True
 
